@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>{{ proyecto.nombre }} — Bienvenida</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600&display=swap');
+  *{box-sizing:border-box;}
+  body{
+    margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center;
+    background:#EEF1F0; font-family:'Inter', sans-serif; color:#1C2430; padding:24px;
+  }
+  .card{
+    background:#fff; border:1px solid #E3E7E5; border-radius:14px;
+    padding:44px 48px; max-width:600px; width:100%;
+    box-shadow:0 20px 50px rgba(20,24,28,.08);
+  }
+  .badge{
+    display:inline-flex; align-items:center; gap:6px;
+    background:#E2F5EA; color:#159A5B; font-size:12.5px; font-weight:600;
+    padding:5px 12px; border-radius:999px; margin-bottom:16px;
+  }
+  .badge .dot{width:7px; height:7px; border-radius:50%; background:currentColor;}
+  h1{font-family:'Plus Jakarta Sans', sans-serif; font-size:25px; margin:0 0 4px;}
+  .sub{font-size:13px; color:#6B7480; margin-bottom:18px;}
+  p.desc{font-size:14.5px; line-height:1.65; color:#374151; margin:0 0 24px;}
+  h2{font-family:'Plus Jakarta Sans', sans-serif; font-size:14px; margin:0 0 10px; color:#1C2430;}
+  ul{margin:0 0 24px; padding-left:18px;}
+  ul li{font-size:13.5px; color:#374151; padding:3px 0;}
+  footer{font-size:11.5px; color:#8B96A5; border-top:1px solid #E3E7E5; padding-top:14px;}
+</style>
+</head>
+<body>
+  <div class="card">
+    <span class="badge"><span class="dot"></span>Django activo</span>
+   <h1>Bienvenido/a a {{ proyecto.nombre }}</h1>
+    <div class="sub">{{ proyecto.curso }} · {{ proyecto.alumno }}</div>
+    <p class="desc">{{ proyecto.descripcion }}</p>
+
+    <h2>Módulos planificados ({{ total_modulos }})</h2>
+    <ul>
+      {% for modulo in modulos %}
+        <li>{{ modulo }}</li>
+      {% endfor %}
+    </ul>
+
+    <footer>Esta página reemplaza la página por defecto de Django (ruta "/" → app examenes).</footer>
+  </div>
+</body>
+</html>
